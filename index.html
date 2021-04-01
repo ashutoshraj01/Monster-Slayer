@@ -36,15 +36,11 @@
           <h3 v-else>It's a Draw!</h3>
           <button @click="startGame">Start New Game</button>
       </section>
-      <section id="controls">
+      <section id="controls" v-else>
         <button @click="attackMonster">ATTACK</button>
         <button :disabled="shouldUseSpecialAttack" @click="specialAttackMonster">SPECIAL ATTACK</button>
         <button @click="healPlayer">HEAL</button>
         <button @click="surrender">SURRENDER</button>
-      </section>
-      <section id="log" class="container">
-        <h2>Battle Log</h2>
-        <ul></ul>
       </section>
     </div>
   </body>
