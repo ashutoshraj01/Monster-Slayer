@@ -2,8 +2,16 @@ const app = Vue.createApp({
     data(){
         return{
             playerHealth: 100,
-            mosterHealth: 100
+            monsterHealth: 100
         };
+    },
+    computed: {
+        monsterBarStyles(){
+            return { width: this.monsterHealth + '%'}
+        },
+        playerBarStyles(){
+            return { width: this.playerHealth + '%'}
+        }
     },
     methods: {
         attackMonster(){
