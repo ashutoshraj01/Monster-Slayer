@@ -29,9 +29,15 @@ const app = Vue.createApp({
     },
     computed: {
         monsterBarStyles(){
+            if(this.monsterHealth < 0){
+                return { width: '0%'};
+            }
             return { width: this.monsterHealth + '%'}
         },
         playerBarStyles(){
+            if(this.playerHealth < 0){
+                return { width: '0%'};
+            }
             return { width: this.playerHealth + '%'}
         },
         shouldUseSpecialAttack(){
@@ -39,6 +45,12 @@ const app = Vue.createApp({
         }
     },
     methods: {
+        startGame(){
+            this.playerHealth =100,
+            this.monsterHealth = 100, 
+            this.currentRound = 0,
+            this.winner = null
+        },
         attackMonster(){
             this.currentRound++;
             const attackValue = Math.floor(Math.random() * (12-5)) + 5; // way to generate randome value b/w 5 to 12.
