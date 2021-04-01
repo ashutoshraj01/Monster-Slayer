@@ -51,6 +51,9 @@ const app = Vue.createApp({
             this.currentRound = 0,
             this.winner = null
         },
+        surrender(){
+            this.winner = 'monster';
+        },
         attackMonster(){
             this.currentRound++;
             const attackValue = Math.floor(Math.random() * (12-5)) + 5; // way to generate randome value b/w 5 to 12.
